@@ -19,8 +19,41 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-white text-neutral-900 font-sans;
+}
+
+a {
+  @apply transition-colors;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fallback pro animovanou linku v navbaru */
+.group:hover .group-underline {
+  transform: scaleX(1);
+}
+.group-underline {
+  display: block;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+  height: 2px;
+  background: #a4842c;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
 }
